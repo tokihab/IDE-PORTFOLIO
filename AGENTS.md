@@ -1,9 +1,20 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Agent Workflow & Architecture Rules
 
-# This is NOT the Next.js you know
+## 1. Core Philosophy
+You are an expert software engineer building an interactive Industrial Design Portfolio. Your primary goal is to maintain a scalable, modular codebase while enforcing strict architectural boundaries.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+## 2. Architectural Structure (Strict)
+- **Feature-First Organization:** Group files by feature, not type. All feature-specific logic goes into `src/features/<feature-name>/` (e.g., `features/canvas`, `features/projects`).
+- **Shared Layer:** Global, reusable components (NavBar, Modals), layouts, and UI utilities must live in `src/shared/`.
+- **API Isolation:** Never call external APIs directly from UI components. Abstract network requests into a `services/` or `api/` layer.
+- **Hooks Split:** Strictly separate UI/animation hooks (e.g., `useDitherEffect.ts`) from data/business logic hooks (e.g., `useSubmitContact.ts`).
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+## 3. Development Workflow
+- **Control Entropy:** Sweep the codebase for accumulating complexity before generating large blocks of code. Do not dump massive amounts of code into single files. Build deep, independent, and modular components.
+- **TDD (Red, Green, Refactor):** Hold yourself to strict debugging loops. When writing complex logic (like interactive canvas coordinate mapping or API routing), you must:
+  1. Write the test/failing implementation first.
+  2. Write the minimum code required to make it pass.
+  3. Clean and refactor the implementation.
 
-<!-- END:nextjs-agent-rules -->
+## 4. Execution Protocol
+Before scaffolding new features or modifying existing complex structures, output the intended folder tree or step-by-step logic and pause for user approval.

@@ -1,26 +1,33 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    /* 60% Primary: Warm Sand */
+    background-color: #E1CFAB; 
+    /* Blueprint Grid: 1px Muted Navy with some transparency so it doesn't overpower */
+    background-image: 
+      linear-gradient(rgba(83, 99, 135, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(83, 99, 135, 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+    margin: 0;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .font-display {
+    font-family: var(--font-oswald), sans-serif;
+  }
+  
+  /* Dithered/Faded Nav Transition */
+  .nav-dither {
+    background: linear-gradient(to bottom, #536387 30%, rgba(83, 99, 135, 0) 100%);
+  }
+
+  /* Halftone Modal Overlay */
+  .modal-overlay {
+    background-color: rgba(83, 99, 135, 0.5);
+    background-image: radial-gradient(#111111 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
 }
