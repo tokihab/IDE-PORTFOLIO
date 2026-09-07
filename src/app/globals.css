@@ -4,11 +4,14 @@
   body {
     /* 60% Primary: Warm Sand */
     background-color: #E1CFAB; 
-    /* Blueprint Grid: 1px Muted Navy with some transparency so it doesn't overpower */
+    
+    /* The 2px Grid Trick to prevent disappearing on zoom */
     background-image: 
-      linear-gradient(rgba(83, 99, 135, 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(83, 99, 135, 0.3) 1px, transparent 1px);
+      linear-gradient(rgba(83, 99, 135, 0.4) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(83, 99, 135, 0.4) 2px, transparent 2px);
     background-size: 40px 40px;
+    background-position: top left;
+    
     margin: 0;
     overflow-x: hidden;
   }
@@ -19,12 +22,10 @@
     font-family: var(--font-oswald), sans-serif;
   }
   
-  /* Dithered/Faded Nav Transition */
   .nav-dither {
     background: linear-gradient(to bottom, #536387 30%, rgba(83, 99, 135, 0) 100%);
   }
 
-  /* Halftone Modal Overlay */
   .modal-overlay {
     background-color: rgba(83, 99, 135, 0.5);
     background-image: radial-gradient(#111111 1px, transparent 1px);
