@@ -12,11 +12,14 @@ export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [uiScale, setUiScale] = useState(1);
   const [browserZoomCompensation, setBrowserZoomCompensation] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const updateBrowserZoom = () => {
+      const mobileViewport = window.matchMedia("(max-width: 767px)").matches;
       const browserZoom = window.outerWidth / window.innerWidth;
-      const compensation = Math.min(3, Math.max(1, 1 / browserZoom));
+      const compensation = mobileViewport ? 1 : Math.min(3, Math.max(1, 1 / browserZoom));
+      setIsMobile(mobileViewport);
       setBrowserZoomCompensation(compensation);
     };
 
@@ -34,9 +37,10 @@ export default function Home() {
   };
 
   const effectiveUiScale = uiScale * browserZoomCompensation;
+  const canvasWidth = isMobile ? "calc(100vw - 2rem)" : "1400px";
 
   return (
-    <main className="relative min-h-screen w-full flex flex-col items-center justify-center p-8 pt-32 overflow-hidden">
+    <main className="relative min-h-screen w-full flex flex-col items-center justify-center p-8 pt-32 overflow-hidden max-md:p-4 max-md:pt-28">
       <NavBar 
         onOpenAbout={() => setIsAboutOpen(true)} 
         onOpenContact={() => setIsContactOpen(true)} 
@@ -44,7 +48,7 @@ export default function Home() {
       />
       
       {/* Professional Instruction Tooltip */}
-      <div className="flex justify-between items-end mb-2 px-1" style={{ width: "1400px", zoom: browserZoomCompensation }}>
+      <div className="flex justify-between items-end mb-2 px-1 max-md:flex-col max-md:items-start max-md:gap-2" style={{ width: canvasWidth, zoom: browserZoomCompensation }}>
         <span className="font-mono text-[#536387] text-sm md:text-base">
           STATUS: <span className="text-green-600 font-bold">ONLINE</span> // AWAITING USER INPUT
         </span>
@@ -62,9 +66,9 @@ export default function Home() {
 
       {/* Responsive Canvas Workshop Floor */}
       <div 
-        className="relative aspect-[16/9] border-4 border-[#536387] shadow-2xl bg-[#E1CFAB] min-w-[1400px]"
+        className="relative aspect-[16/9] border-4 border-[#536387] shadow-2xl bg-[#E1CFAB] max-md:min-w-0"
         style={{
-          width: "1400px",
+          width: canvasWidth,
           zoom: browserZoomCompensation,
           backgroundImage: "url('/workshop-bg.jpg')",
           backgroundSize: "cover",

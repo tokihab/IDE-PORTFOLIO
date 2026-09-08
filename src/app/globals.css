@@ -39,6 +39,33 @@
     font-weight: 700;
   }
 
+  @media (max-width: 767px) {
+    .nav-inner {
+      width: 100% !important;
+      height: 100% !important;
+      padding: 0.9rem 1rem 0;
+      transform: none !important;
+    }
+
+    .nav-inner h1 {
+      font-size: 1.15rem;
+      line-height: 1.1;
+    }
+
+    .nav-inner p {
+      font-size: 0.55rem;
+    }
+
+    .nav-links {
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      line-height: 1.2;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      max-width: 58%;
+    }
+  }
+
   .document-button {
     display: inline-flex;
     align-items: center;

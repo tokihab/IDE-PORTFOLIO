@@ -32,7 +32,7 @@ export default function BaseModal({ onClose, children, className = "", uiScale =
         </button>
 
         {/* The core structural box. The `className` prop injects the custom sizes. */}
-        <div className={`bg-[#F2E9CD] border-4 border-[#536387] shadow-2xl overflow-hidden ${className}`}>
+        <div className={`bg-[#F2E9CD] border-4 border-[#536387] shadow-2xl overflow-hidden max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] ${className}`}>
           {children}
         </div>
       </div>
