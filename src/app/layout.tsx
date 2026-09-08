@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   description: "Interactive blueprint workspace",
   icons: {
     icon: [
-      { url: "/favicon-package/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-package/favicon.ico" },
-      { url: "/favicon-package/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/favicon-package/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon-package/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon-package/favicon.svg?v=3", type: "image/svg+xml" },
+      { url: "/favicon-package/favicon.ico?v=3" },
+      { url: "/favicon-package/favicon-96x96.png?v=3", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-package/icon-192.png?v=3", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-package/icon-512.png?v=3", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/favicon-package/favicon.ico",
-    apple: "/favicon-package/apple-touch-icon.png",
+    shortcut: "/favicon-package/favicon.ico?v=3",
+    apple: "/favicon-package/apple-touch-icon.png?v=3",
   },
   manifest: "/favicon-package/site.webmanifest",
 };
