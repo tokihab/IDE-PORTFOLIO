@@ -41,7 +41,7 @@ export default function Home() {
   const canvasWidth = isMobile ? "calc(100vw - 2rem)" : "1400px";
 
   return (
-    <main className="relative min-h-screen w-full flex flex-col items-start justify-start p-8 pt-32 overflow-auto max-md:p-4 max-md:pt-28">
+    <main className="relative min-h-screen w-full flex flex-col items-center justify-center p-8 pt-32 overflow-auto max-md:p-4 max-md:pt-28" style={{ alignItems: "safe center", justifyContent: "safe center" }}>
       <NavBar 
         onOpenAbout={() => setIsAboutOpen(true)} 
         onOpenContact={() => setIsContactOpen(true)} 

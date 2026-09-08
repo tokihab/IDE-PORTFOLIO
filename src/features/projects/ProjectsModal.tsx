@@ -352,7 +352,7 @@ export default function ProjectModal({ projectId, onClose, uiScale = 1 }: Projec
           <div className="flex-1 min-h-0 bg-[#111111] border-2 border-[#536387] p-2 flex items-center justify-center relative overflow-hidden">
             {project.media.length > 0 && project.media[activeMediaIndex] && (
               project.media[activeMediaIndex].type === 'video' ? (
-                <video src={project.media[activeMediaIndex].src} controls autoPlay muted loop className="max-h-full max-w-full object-contain" />
+                <video src={project.media[activeMediaIndex].src} controls autoPlay muted loop className="h-full w-full object-cover" />
               ) : project.media[activeMediaIndex].type === 'embed' ? (
                 <iframe
                   src={project.media[activeMediaIndex].src}

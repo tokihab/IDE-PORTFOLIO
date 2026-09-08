@@ -4,14 +4,14 @@ import BaseModal from "./BaseModal";
 export default function AboutModal({ onClose }: { onClose: () => void }) {
   return (
     <BaseModal onClose={onClose} className="w-[900px] h-[500px] flex flex-col md:flex-row">
-      <div className="w-full md:w-2/5 border-b-4 md:border-b-0 md:border-r-4 border-[#536387] bg-[#E1CFAB] flex flex-col items-center justify-center shrink-0 p-8 text-center">
-        <a href="/mariam.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open Mariam Kaldas profile image" className="block border-2 border-[#536387] hover:border-4 transition-all">
-          <img src="/mariam.jpg" alt="Mariam Kaldas" className="h-48 w-40 object-cover" />
+      <div className="relative w-full md:w-2/5 min-h-[260px] md:min-h-0 border-b-4 md:border-b-0 md:border-r-4 border-[#536387] bg-[#E1CFAB] flex flex-col items-center justify-end shrink-0 p-8 text-center overflow-hidden">
+        <a href="/mariam.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open Mariam Kaldas profile image" className="absolute inset-0 block border-2 border-[#536387] hover:border-4 transition-all">
+          <img src="/mariam.jpg" alt="Mariam Kaldas" className="h-full w-full object-cover" />
         </a>
-        <span className="font-mono text-[#536387] text-sm mt-4">[ INDUSTRIAL_DESIGNER ]</span>
+        <span className="relative z-10 bg-[#F2E9CD]/90 border-2 border-[#536387] text-[#536387] px-2 py-1 font-mono text-sm">[ INDUSTRIAL_DESIGNER ]</span>
       </div>
 
-      <div className="w-full md:w-3/5 p-10 flex flex-col justify-center overflow-y-auto">
+      <div className="w-full md:w-3/5 p-10 flex flex-col justify-start overflow-y-auto">
         <span className="font-mono text-xs text-[#536387] mb-2">[ ABOUT_THE_DESIGNER ]</span>
         <h2 className="font-display text-4xl text-[#536387] mb-5 uppercase">Mariam Kaldas</h2>
         <div className="space-y-4 text-base text-[#111111] leading-relaxed font-sans">

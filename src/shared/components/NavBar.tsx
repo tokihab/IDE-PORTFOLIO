@@ -8,7 +8,7 @@ interface NavBarProps {
 
 export default function NavBar({ onOpenAbout, onOpenContact, uiScale = 1 }: NavBarProps) {
   return (
-    <nav className="fixed top-0 left-0 w-full nav-dither z-40 pointer-events-none" style={{ height: `${Math.max(8, 8 * uiScale)}rem` }}>
+    <nav className="fixed top-0 left-0 w-full nav-dither z-40 pointer-events-auto overflow-auto" style={{ height: `${Math.max(8, 8 * uiScale)}rem` }}>
       <div className="nav-inner flex items-start justify-between px-8 pt-6 pointer-events-none" style={{ width: `${100 / uiScale}%`, height: `${100 / uiScale}%`, transform: `scale(${uiScale})`, transformOrigin: "top left" }}>
         <div className="text-[#F2E9CD] pointer-events-auto">
           <h1 className="font-display tracking-widest text-3xl">[ MARIAM KALDAS ]</h1>
