@@ -1,7 +1,7 @@
 {
-  "name": "Your Application Name",
-  "short_name": "App",
-  "description": "Application description",
+  "name": "Mariam Kaldas Industrial Design Portfolio",
+  "short_name": "Mariam Kaldas",
+  "description": "Interactive Blueprint Workshop portfolio",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -9,7 +9,7 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon-package/favicon-large.svg",
+      "src": "/favicon-package/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   description: "Interactive blueprint workspace",
   icons: {
     icon: [
-      { url: "/favicon-package/favicon-large.svg", type: "image/svg+xml" },
-      { url: "/favicon-package/favicon.ico" },
       { url: "/favicon-package/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-package/favicon.ico" },
       { url: "/favicon-package/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-package/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/favicon-package/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     shortcut: "/favicon-package/favicon.ico",

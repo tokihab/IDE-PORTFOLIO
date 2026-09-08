@@ -79,7 +79,7 @@ export default function Home() {
       >
         {/* 1. Blueprints & Canvases (Floor, Bottom Left) */}
         <Hotspot 
-          top="69.4%" left="0%" width="16.6%" height="30.6%" 
+          top="65%" left="0%" width="16%" height="30%" 
           title="[ CREATIVE_PORTFOLIO ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('blueprints-canvases')} 
@@ -87,7 +87,7 @@ export default function Home() {
 
         {/* 2. Car Molding (3D Printer on Left Desk) -> SC-04 Toy Car */}
         <Hotspot 
-          top="53.8%" left="15.2%" width="11.3%" height="20%" 
+          top="52.8%" left="14.8%" width="13%" height="20%" 
           title="[ SC-04_TOY_CAR ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('sc-04-car')} 
@@ -95,7 +95,7 @@ export default function Home() {
 
         {/* 3. Backpack Grill (On the Girl's Back) */}
         <Hotspot 
-          top="52.8%" left="29.7%" width="12.1%" height="16.7%" 
+          top="48.5%" left="30%" width="9%" height="20%" 
           title="[ BACKPACK_GRILL ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('backpack-grill')} 
@@ -103,7 +103,7 @@ export default function Home() {
 
         {/* 4. ProActiv Boxes (Center Back Table) */}
         <Hotspot 
-          top="29%" left="49%" width="9%" height="17%" 
+          top="27%" left="51.5%" width="9.5%" height="18%" 
           title="[ PROACTIV_REDESIGN ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('proactiv-redesign')} 
@@ -111,7 +111,7 @@ export default function Home() {
 
         {/* 5. Sportlife Gum (Center Front Table) */}
         <Hotspot 
-          top="60.8%" left="49.6%" width="12.8%" height="17.5%" 
+          top="60%" left="88.5%" width="11%" height="20%" 
           title="[ SPORTLIFE_REMINT ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('sportlife-remint')} 
@@ -119,7 +119,7 @@ export default function Home() {
 
         {/* 6. The Crossbow (Shelf on Center-Right) -> The Twang */}
         <Hotspot 
-          top="19.6%" left="57.8%" width="12.5%" height="12.6%" 
+          top="18%" left="58%" width="13.5%" height="14%" 
           title="[ THE_TWANG_LAUNCHER ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('the-twang')} 
@@ -127,7 +127,7 @@ export default function Home() {
 
         {/* 7. SitSense Chair (Office Chair, Right Side) */}
         <Hotspot 
-          top="58.3%" left="65.5%" width="12.5%" height="15.5%" 
+          top="48%" left="47%" width="15%" height="15%" 
           title="[ SITSENSE_NUDGE_SYSTEM ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('sitsense-chair')} 
@@ -135,7 +135,7 @@ export default function Home() {
 
         {/* 8. Red Cat Stamp (Desk on Far Right) */}
         <Hotspot 
-          top="45.7%" left="75.2%" width="10%" height="15.2%" 
+          top="39%" left="71%" width="12%" height="16%" 
           title="[ CAT_STAMP_MECH ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('cat-stamp')} 
@@ -143,10 +143,18 @@ export default function Home() {
 
         {/* 9. Chalkboard (Wall on Top Right) -> Teaching Experience */}
         <Hotspot 
-          top="10%" left="78.4%" width="20.8%" height="30%" 
+          top="6%" left="80%" width="20%" height="42%" 
           title="[ ACADEMIC_INSTRUCTION ]" 
           uiScale={uiScale}
           onClick={() => setActiveProject('teaching-experience')} 
+        />
+
+        {/* 10. SolidWorks CAD laptop (Center workstation) */}
+        <Hotspot
+          top="30%" left="40%" width="14%" height="19%"
+          title="[ SOLIDWORKS_CAD ]"
+          uiScale={uiScale}
+          onClick={() => setActiveProject('solidworks-workflow')}
         />
         
       </div>

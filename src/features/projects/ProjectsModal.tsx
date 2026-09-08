@@ -10,6 +10,7 @@ type ProjectAnalysis = {
   challenge: string;
   approach: string;
   outcome: string;
+  codeBlocks?: { label: string; language: string; code: string }[];
 };
 
 type StandardProject = {
@@ -74,13 +75,27 @@ const PROJECT_DATABASE: Record<string, ProjectEntry> = {
       brief: "A smart cushion and desktop companion that interrupts prolonged sitting with quiet, physical feedback.",
       challenge: "Long periods of sedentary work create physical and cognitive costs, but many reminder systems are easy to dismiss or socially disruptive. The system needed to intervene without demanding attention during meetings or focused work.",
       approach: "Pressure sensing tracks sitting duration and vibration motors provide a gentle nudge after 45 minutes. Fogg Behavior Model and Self-Determination Theory informed the intervention, while calendar awareness prevents prompts during meetings.",
-      outcome: "Technology Acceptance Model testing indicated 82% intention to use, with positive perceived ease of use and attitude scores. The next technical step is a mobile interface and MOSFET-driven LRA motors for a more robust product platform."
+      outcome: "Technology Acceptance Model testing indicated 82% intention to use, with positive perceived ease of use and attitude scores. The next technical step is a mobile interface and MOSFET-driven LRA motors for a more robust product platform.",
+      codeBlocks: [
+        {
+          label: "PICO_SERIAL_SETUP",
+          language: "python",
+          code: "PICO_PORT = \"COM13\"\nBAUD_RATE = 9600\n\ntry:\n    pico = serial.Serial(PICO_PORT, BAUD_RATE, timeout=1)\n    time.sleep(2)\nexcept Exception:\n    pico = None"
+        },
+        {
+          label: "IDLE_BREAK_RECORDING",
+          language: "python",
+          code: "start_time = datetime.datetime.now()\ninput(\"Press ENTER when activity resumes...\")\nend_time = datetime.datetime.now()\nidle_duration = (end_time - start_time).total_seconds()\n\nidle_records.append({\n    \"Start Time\": start_time,\n    \"End Time\": end_time,\n    \"Idle Duration (s)\": round(idle_duration, 3)\n})"
+        }
+      ]
     },
     description: "Addressing the physical and cognitive decline associated with prolonged sedentary behavior, SitSense integrates a smart ergonomic cushion with a pressure sensor, vibration motors, and a desktop application. Rooted in the Fogg Behavior Model and Self-Determination Theory, the system silently monitors sitting duration and provides a gentle, physical vibration prompt after 45 minutes, intelligently skipping nudges when the user's digital calendar indicates a meeting. User testing via the Technology Acceptance Model confirmed high adoption potential (82% intention to use) and positive attitudes (PEOU 3.93/5, ATU 3.87/5), highlighting the system's ability to use local, transparent feedback over persuasive tactics. Future iterations focus on migrating to a mobile interface for convenience and implementing MOSFETs to safely drive more powerful LRA vibration motors.",
     media: [
       { type: 'image', src: '/sitsense (1).png' },
       { type: 'image', src: '/sitsense (2).png' },
       { type: 'image', src: '/sitsense-chair-research-board.jpeg' },
+      { type: 'image', src: '/sitsense-hardware-01.jpeg' },
+      { type: 'image', src: '/sitsense-hardware-02.png' },
     ]
 
   },
@@ -176,6 +191,23 @@ const PROJECT_DATABASE: Record<string, ProjectEntry> = {
     },
     description: "Serving as both an International Baccalaureate (IB) Tutor and a Teaching Assistant for Mechanics of Materials. This dual role involves bridging the gap between theoretical physics and applied industrial design, breaking down complex structural engineering concepts, and guiding students through rigorous academic curriculums.",
     media: []
+  },
+  'solidworks-workflow': {
+    title: "SolidWorks CAD & Product Development",
+    category: "3D CAD / Parametric Modeling / Product Development",
+    skills: ["SolidWorks", "Parametric CAD", "Design Iteration", "Technical Visualization"],
+    analysis: {
+      brief: "A focused CAD practice showing how product ideas are translated into editable, testable 3D models and clear technical views.",
+      challenge: "A useful CAD model must do more than look correct from one angle. It needs a coherent feature history, controlled dimensions, and enough clarity that another designer can understand the design intent and continue the work.",
+      approach: "The workflow moves from reference geometry and rough form studies into parametric features, assemblies, and presentation views. Iteration is treated as part of the modeling process: dimensions, relationships, and visual decisions are refined together rather than frozen too early.",
+      outcome: "The resulting SolidWorks work demonstrates a practical bridge between concept development and manufacture-ready communication. It adds a digital modeling layer to the portfolio's physical prototyping, packaging, and production-planning projects."
+    },
+    description: "A selection of SolidWorks modeling and product-development work, showing parametric construction, iterative form development, and the use of CAD as a communication tool between design intent and physical realization.",
+    media: [
+      { type: 'image', src: '/solidworks-01.jpeg' },
+      { type: 'image', src: '/solidworks-02.jpeg' },
+      { type: 'image', src: '/solidworks-03.jpeg' }
+    ]
   },
   'blueprints-canvases': {
     isTabbed: true,
@@ -392,6 +424,12 @@ export default function ProjectModal({ projectId, onClose, uiScale = 1 }: Projec
               <AnalysisSection label="PROJECT_BRIEF" text={project.analysis.brief} source={analysisSources?.brief} />
               <AnalysisSection label="DESIGN_CHALLENGE" text={project.analysis.challenge} source={analysisSources?.challenge} />
               <AnalysisSection label="APPROACH" text={project.analysis.approach} source={analysisSources?.approach} />
+              {project.analysis.codeBlocks?.map((block) => (
+                <section key={block.label}>
+                  <h2 className="font-display text-xl text-[#536387] uppercase tracking-wide mb-1">[ {block.label} ]</h2>
+                  <pre className="overflow-x-auto border-2 border-[#536387] bg-[#111111] p-3 text-xs leading-relaxed text-[#F2E9CD]"><code>{block.code}</code></pre>
+                </section>
+              ))}
               <AnalysisSection label="OUTCOME" text={project.analysis.outcome} source={analysisSources?.outcome} />
             </>
           ) : (
