@@ -16,7 +16,8 @@ export default function Home() {
 
   useEffect(() => {
     const updateBrowserZoom = () => {
-      const mobileViewport = window.matchMedia("(max-width: 767px)").matches;
+      const mobileViewport = window.matchMedia("(max-width: 767px)").matches
+        || (navigator.maxTouchPoints > 0 && window.innerWidth < 1024);
       const browserZoom = window.outerWidth / window.innerWidth;
       const compensation = mobileViewport ? 1 : Math.min(3, Math.max(1, 1 / browserZoom));
       setIsMobile(mobileViewport);
@@ -40,7 +41,7 @@ export default function Home() {
   const canvasWidth = isMobile ? "calc(100vw - 2rem)" : "1400px";
 
   return (
-    <main className="relative min-h-screen w-full flex flex-col items-center justify-center p-8 pt-32 overflow-hidden max-md:p-4 max-md:pt-28">
+    <main className="relative min-h-screen w-full flex flex-col items-center justify-center p-8 pt-32 overflow-auto max-md:p-4 max-md:pt-28">
       <NavBar 
         onOpenAbout={() => setIsAboutOpen(true)} 
         onOpenContact={() => setIsContactOpen(true)} 
@@ -66,7 +67,7 @@ export default function Home() {
 
       {/* Responsive Canvas Workshop Floor */}
       <div 
-        className="relative aspect-[16/9] border-4 border-[#536387] shadow-2xl bg-[#E1CFAB] max-md:min-w-0"
+        className="relative aspect-video border-4 border-[#536387] shadow-2xl bg-[#E1CFAB] max-md:min-w-0"
         style={{
           width: canvasWidth,
           zoom: browserZoomCompensation,

@@ -12,7 +12,7 @@ interface BaseModalProps {
 export default function BaseModal({ onClose, children, className = "", uiScale = 1 }: BaseModalProps) {
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center modal-overlay p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center modal-overlay modal-scroll p-4"
       onClick={onClose}
     >
       {/* 
@@ -20,8 +20,8 @@ export default function BaseModal({ onClose, children, className = "", uiScale =
         and stops background clicks from triggering when clicking inside the modal 
       */}
       <div 
-        className="relative max-w-full max-h-full"
-        style={{ transform: `scale(${uiScale})` }}
+        className="relative max-w-full max-h-full modal-frame"
+        style={{ zoom: uiScale }}
         onClick={(e) => e.stopPropagation()}
       >
         <button 
@@ -32,7 +32,7 @@ export default function BaseModal({ onClose, children, className = "", uiScale =
         </button>
 
         {/* The core structural box. The `className` prop injects the custom sizes. */}
-        <div className={`bg-[#F2E9CD] border-4 border-[#536387] shadow-2xl overflow-hidden max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] ${className}`}>
+        <div className={`bg-[#F2E9CD] border-4 border-[#536387] shadow-2xl overflow-auto max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] ${className}`}>
           {children}
         </div>
       </div>
