@@ -5,7 +5,9 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
   return (
     <BaseModal onClose={onClose} className="w-[900px] h-[500px] flex flex-col md:flex-row">
       <div className="w-full md:w-2/5 border-b-4 md:border-b-0 md:border-r-4 border-[#536387] bg-[#E1CFAB] flex flex-col items-center justify-center shrink-0 p-8 text-center">
-        <span className="font-display text-6xl text-[#536387]">MK</span>
+        <a href="/mariam.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open Mariam Kaldas profile image" className="block border-2 border-[#536387] hover:border-4 transition-all">
+          <img src="/mariam.jpg" alt="Mariam Kaldas" className="h-48 w-40 object-cover" />
+        </a>
         <span className="font-mono text-[#536387] text-sm mt-4">[ INDUSTRIAL_DESIGNER ]</span>
       </div>
 
@@ -20,6 +22,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
         <div className="mt-6 border-t-2 border-dashed border-[#536387] pt-4 font-mono text-xs text-[#536387]">
           <p>[ FOCUS ] PRODUCT SYSTEMS / MECHANISMS / PACKAGING / MATERIALS</p>
           <p className="mt-2">[ BASE ] INDUSTRIAL DESIGN + ENGINEERING THINKING</p>
+          <a href="#teaching-resources" className="mt-2 block underline underline-offset-2">[ TEACHING_RESOURCES ]</a>
         </div>
       </div>
     </BaseModal>

@@ -41,7 +41,7 @@ export default function Home() {
   const canvasWidth = isMobile ? "calc(100vw - 2rem)" : "1400px";
 
   return (
-    <main className="relative min-h-screen w-full flex flex-col items-center justify-center p-8 pt-32 overflow-auto max-md:p-4 max-md:pt-28">
+    <main className="relative min-h-screen w-full flex flex-col items-start justify-start p-8 pt-32 overflow-auto max-md:p-4 max-md:pt-28">
       <NavBar 
         onOpenAbout={() => setIsAboutOpen(true)} 
         onOpenContact={() => setIsContactOpen(true)} 
@@ -49,7 +49,7 @@ export default function Home() {
       />
       
       {/* Professional Instruction Tooltip */}
-      <div className="flex justify-between items-end mb-2 px-1 max-md:flex-col max-md:items-start max-md:gap-2" style={{ width: canvasWidth, zoom: browserZoomCompensation }}>
+      <div className="canvas-aligned flex justify-between items-end mb-2 px-1 max-md:flex-col max-md:items-start max-md:gap-2" style={{ width: canvasWidth, zoom: browserZoomCompensation }}>
         <span className="font-mono text-[#536387] text-sm md:text-base">
           STATUS: <span className="text-green-600 font-bold">ONLINE</span> // AWAITING USER INPUT
         </span>
@@ -67,7 +67,7 @@ export default function Home() {
 
       {/* Responsive Canvas Workshop Floor */}
       <div 
-        className="relative aspect-video border-4 border-[#536387] shadow-2xl bg-[#E1CFAB] max-md:min-w-0"
+        className="canvas-aligned relative aspect-video border-4 border-[#536387] shadow-2xl bg-[#E1CFAB] max-md:min-w-0"
         style={{
           width: canvasWidth,
           zoom: browserZoomCompensation,

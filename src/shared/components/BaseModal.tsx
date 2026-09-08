@@ -20,7 +20,7 @@ export default function BaseModal({ onClose, children, className = "", uiScale =
         and stops background clicks from triggering when clicking inside the modal 
       */}
       <div 
-        className="relative max-w-full max-h-full modal-frame"
+        className="relative modal-frame"
         style={{ zoom: uiScale }}
         onClick={(e) => e.stopPropagation()}
       >
