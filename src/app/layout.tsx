@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: "Interactive blueprint workspace",
   icons: {
     icon: [
+      { url: "/favicon-package/favicon-large.svg", type: "image/svg+xml" },
       { url: "/favicon-package/favicon.ico" },
       { url: "/favicon-package/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-package/favicon-96x96.png", sizes: "96x96", type: "image/png" },
