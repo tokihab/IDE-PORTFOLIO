@@ -31,4 +31,66 @@
     background-image: radial-gradient(#111111 1px, transparent 1px);
     background-size: 4px 4px;
   }
+
+  .skill-chip {
+    background-color: #536387;
+    color: #F2E9CD;
+    border-color: #536387;
+    font-weight: 700;
+  }
+
+  .document-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0.55rem 0.8rem;
+    background-color: #536387;
+    border: 2px solid #111111;
+    color: #F2E9CD;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-align: left;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  .document-button:hover,
+  .document-button:focus-visible {
+    background-color: #111111;
+    color: #F2E9CD;
+    animation: document-nudge 350ms ease-in-out;
+    outline: 2px solid #536387;
+    outline-offset: 2px;
+  }
+
+  .document-citation {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #536387;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.15rem;
+  }
+
+  .document-citation:hover,
+  .document-citation:focus-visible {
+    color: #111111;
+  }
+
+  @keyframes document-nudge {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px) rotate(-0.5deg); }
+    75% { transform: translateX(2px) rotate(0.5deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .document-button:hover,
+    .document-button:focus-visible {
+      animation: none;
+    }
+  }
 }

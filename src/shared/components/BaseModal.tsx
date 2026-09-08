@@ -6,9 +6,10 @@ interface BaseModalProps {
   onClose: () => void;
   children: ReactNode;
   className?: string; // Allows injecting specific sizes (e.g., w-[900px])
+  uiScale?: number;
 }
 
-export default function BaseModal({ onClose, children, className = "" }: BaseModalProps) {
+export default function BaseModal({ onClose, children, className = "", uiScale = 1 }: BaseModalProps) {
   return (
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center modal-overlay p-4"
@@ -20,6 +21,7 @@ export default function BaseModal({ onClose, children, className = "" }: BaseMod
       */}
       <div 
         className="relative max-w-full max-h-full"
+        style={{ transform: `scale(${uiScale})` }}
         onClick={(e) => e.stopPropagation()}
       >
         <button 

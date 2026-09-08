@@ -3,17 +3,19 @@
 interface NavBarProps {
   onOpenAbout: () => void;
   onOpenContact: () => void;
+  uiScale?: number;
 }
 
-export default function NavBar({ onOpenAbout, onOpenContact }: NavBarProps) {
+export default function NavBar({ onOpenAbout, onOpenContact, uiScale = 1 }: NavBarProps) {
   return (
-    <nav className="fixed top-0 left-0 w-full h-32 nav-dither z-40 flex items-start justify-between px-8 pt-6 pointer-events-none">
-      <div className="text-[#F2E9CD] pointer-events-auto">
-        <h1 className="font-display tracking-widest text-3xl">[ MARIAM KALDAS ]</h1>
-        <p className="font-mono text-xs mt-1">SYS.STATUS: [ONLINE]</p>
-      </div>
+    <nav className="fixed top-0 left-0 w-full h-32 nav-dither z-40 pointer-events-none">
+      <div className="flex items-start justify-between px-8 pt-6 pointer-events-none" style={{ width: `${100 / uiScale}%`, height: `${100 / uiScale}%`, transform: `scale(${uiScale})`, transformOrigin: "top left" }}>
+        <div className="text-[#F2E9CD] pointer-events-auto">
+          <h1 className="font-display tracking-widest text-3xl">[ MARIAM KALDAS ]</h1>
+          <p className="font-mono text-xs mt-1">SYS.STATUS: [ONLINE]</p>
+        </div>
       
-      <div className="flex gap-6 text-[#F2E9CD] font-display text-xl tracking-wider pointer-events-auto">
+        <div className="flex gap-6 text-[#F2E9CD] font-display text-xl tracking-wider pointer-events-auto">
         <button 
           onClick={onOpenAbout}
           className="hover:text-[#E1CFAB] transition-colors cursor-pointer"
@@ -26,7 +28,16 @@ export default function NavBar({ onOpenAbout, onOpenContact }: NavBarProps) {
         >
           [ CONTACT ]
         </button>
-        <button className="hover:text-[#E1CFAB] transition-colors cursor-pointer">[ RESUME ]</button>
+        {/* Direct link to your PDF */}
+        <a 
+          href="/mariam-kaldas-resume.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:text-[#E1CFAB] transition-colors cursor-pointer"
+        >
+          [ RESUME ]
+        </a>
+        </div>
       </div>
     </nav>
   );
